@@ -1,13 +1,99 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: 'Quick Start'
+description: 'Start building Polkadot Agent Kit in under 5 minutes'
 ---
 
-## Setup your development
+## Install Polkadot Agent Kit
 
-Learn how to update your docs locally and deploy them to the public.
+Install the Polkadot Agent Kit SDK using your preferred package manager.
 
-### Edit and preview
+<CodeGroup>
+
+```bash npm
+npm i @polkadot-agent-kit/sdk
+```
+
+```bash yarn
+yarn add @polkadot-agent-kit/sdk
+```
+
+```bash pnpm
+pnpm add @polkadot-agent-kit/sdk
+```
+
+</CodeGroup>
+
+## Basic Usage
+
+The Polkadot Agent Kit SDK provides a set of tools to help you build agents that can interact with the Polkadot network.
+
+### Create a new Polkadot Agent 
+
+<CodeGroup>
+
+```typescript Sr25519
+import { PolkadotAgentKit } from '@polkadot-agent-kit/sdk';
+
+// Define the Polkadot Agent Kit API
+const agent = new PolkadotAgentKit(<your private key>, {
+    keyType: "Sr25519",
+});
+
+// Initialize the Polkadot Agent Kit API to connect to the Polkadot network
+agent.initializeApi();
+
+// Set up tools
+// Get balance of agent account
+const checkBalance = this.agent.getNativeBalanceTool();
+// Transfer native tokens to a recipient address on a specific chain.
+const transferNative = this.agent.transferNativeTool();
+// Transfer native tokens to a recipient address on a specific chain via xcm.
+const xcmTransferNativeAsset = this.agent.xcmTransferNativeTool();
+
+```
+
+```typescript Ed25519
+import { PolkadotAgentKit } from '@polkadot-agent-kit/sdk';
+
+// Define the Polkadot Agent Kit API
+const agent = new PolkadotAgentKit(<your private key>, {
+    keyType: "Ed25519",
+});
+// Initialize the Polkadot Agent Kit API to connect to the Polkadot network
+agent.initializeApi();
+
+// Set up tools
+// Get balance of agent account
+const checkBalance = this.agent.getNativeBalanceTool();
+// Transfer native tokens to a recipient address on a specific chain.
+const transferNative = this.agent.transferNativeTool();
+// Transfer native tokens to a recipient address on a specific chain via xcm.
+const xcmTransferNativeAsset = this.agent.xcmTransferNativeTool();
+
+```
+
+```typescript Ecdsa
+import { PolkadotAgentKit } from '@polkadot-agent-kit/sdk';
+
+// Define the Polkadot Agent Kit API
+const agent = new PolkadotAgentKit(<your private key>, {
+    keyType: "Ecdsa",
+});
+// Initialize the Polkadot Agent Kit API to connect to the Polkadot network
+agent.initializeApi();
+
+// Set up tools
+// Get balance of agent account
+const checkBalance = this.agent.getNativeBalanceTool();
+// Transfer native tokens to a recipient address on a specific chain.
+const transferNative = this.agent.transferNativeTool();
+// Transfer native tokens to a recipient address on a specific chain via xcm.
+const xcmTransferNativeAsset = this.agent.xcmTransferNativeTool();
+
+```
+
+</CodeGroup>
+
 
 <AccordionGroup>
   <Accordion icon="github" title="Clone your docs locally">
@@ -66,16 +152,16 @@ Add content directly in your files with MDX syntax and React components. You can
 
 <CardGroup>
 
-<Card title="Add Content With MDX" icon="file" href="/essentials/markdown">
+<Card title="Add Content With MDX" icon="file" href="/essentials/telegram-bot">
   Add content to your docs with MDX syntax.
 </Card>
 
 <Card
-  title="Add Code Blocks"
+  title="Telegram Bot"
   icon="square-code"
-  href="/essentials/code"
+  href="/essentials/telegram-bot"
 >
-  Add code directly to your docs with syntax highlighting.
+  Build a Telegram bot that interacts with the Polkadot network.
 </Card>
 
 <Card

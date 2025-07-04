@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: "Welcome to the home of your new documentation"
+description: "Polkadot Agent Kit"
 ---
 
 <img
@@ -14,58 +14,63 @@ description: "Welcome to the home of your new documentation"
   alt="Hero Dark"
 />
 
-## Setting up
+## Overview
+Polkadot Agent Kit is a modular, open-source toolkit designed to simplify the development of agent-based applications and bots for the Polkadot ecosystem. It provides reusable components, utilities, and patterns for interacting with `Polkadot` and `Parachain` networks, supporting both core blockchain operations and higher-level agent logic.
 
-The first step to world-class documentation is setting up your editing environments.
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+## Purposes 
 
-## Make it yours
+* Empower developers to build intelligent, automated agents and bots that interact with the Polkadot ecosystem.
+* Abstract away complexity of multi-chain operations, transaction management, and agent orchestration.
+* Lower the barrier for developers to build on Polkadot and foster a robust ecosystem of agent-based applications.
 
-Update your docs to your brand and add valuable content for the best user conversion.
+
+## Key Features 
 
 <CardGroup cols={2}>
   <Card
-    title="Customize Style"
+    title="Substrate's Light Client Connection"
     icon="palette"
-    href="https://mintlify.com/docs/settings/global"
   >
-    Customize your docs to your company's colors and brands
+Connects to Polkadot, Kusama, and parachains via the Smoldot Light Client for decentralized, trustless network access without centralized RPCs.
   </Card>
   <Card
-    title="Reference APIs"
+    title="Wallet Management"
     icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
   >
-    Automatically generate endpoints from an OpenAPI spec
+    Provides a unified interface for managing multiple Polkadot-compatible wallets, including `Sr25519` and `Ed25519` key types.
   </Card>
   <Card
-    title="Add Components"
+    title="Cross-Chain Transactions"
     icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/content/components/accordions"
   >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
+Facilitates token transfers and operations via XCM (Cross-Consensus Messaging) between Relay Chain, Asset Hub, and parachains.
   </Card>
 </CardGroup>
+
+
+## Core Packages 
+
+| Package | Primary Responsibility | Key Dependencies |
+|---------|----------------------|------------------|
+| `@polkadot-agent-kit/sdk` | Public API interface | core, llm, common, @langchain/core |
+| `@polkadot-agent-kit/llm` | AI tool integration | core, common, @langchain/core |
+| `@polkadot-agent-kit/core` | Blockchain operations | common, polkadot-api, @paraspell/sdk |
+| `@polkadot-agent-kit/common` | Shared utilities | polkadot-api |
+
+
+## System Overview 
+
+The Polkadot Agent Kit follows a layered architecture with clear separation of concerns. The system is organized as a monorepo containing four core packages and supporting infrastructure.
+
+### High-Level Architecture
+
+<Frame>
+  <img src="/images/high-level-system.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+### Core Architecture
+
+<Frame>
+  <img src="/images/core-architecture.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
